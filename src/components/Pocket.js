@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -59,14 +60,14 @@ const Pocket = React.memo(({color, player, data}) => {
         </View>
         <View style={[styles.flexRow, {marginTop: 20}]}>
           <Plot
-            pieceNo={0}
+            pieceNo={2}
             data={data}
             onPress={handlePress}
             player={player}
             color={color}
           />
           <Plot
-            pieceNo={1}
+            pieceNo={3}
             data={data}
             onPress={handlePress}
             player={player}

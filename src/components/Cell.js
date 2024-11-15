@@ -7,6 +7,7 @@ import {ArrowRightIcon, StarIcon} from 'react-native-heroicons/outline';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectCurrentPositions} from '../redux/reducers/gameSelectors';
+import {handleForwardThunk} from '../redux/reducers/gameAction';
 
 const Cell = ({color, id}) => {
   const dispatch = useDispatch();
@@ -30,7 +31,12 @@ const Cell = ({color, id}) => {
 
   console.log(plottedPieces, id);
 
-  const handlePress = useCallback((playerNo, pieceId) => {}, []);
+  const handlePress = useCallback(
+    (playerNo, pieceId) => {
+      dispatch(handleForwardThunk(playerNo, pieceId, id));
+    },
+    [dispatch, id],
+  );
 
   return (
     <View
@@ -62,7 +68,7 @@ const Cell = ({color, id}) => {
         />
       )}
       {pieceAtPosition.length > 0 &&
-        pieceAtPosition.map((piece, index) => {
+        pieceAtPosition?.map((piece, index) => {
           const playerNo =
             piece.id[0] === 'A'
               ? 1

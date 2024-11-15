@@ -25,8 +25,6 @@ import {
   updatePlayerChance,
 } from '../redux/reducers/gameSlice';
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 const Dice = React.memo(({color, rotate, player, data}) => {
   const dispatch = useDispatch();
   const currentPlayerChance = useSelector(selectCurrentPlayerChance);
@@ -39,6 +37,7 @@ const Dice = React.memo(({color, rotate, player, data}) => {
   const pileIcon = BackgroundImage.GetImage(color);
   const diceIcon = BackgroundImage.GetImage(diceNo);
   const arrowAnim = useRef(new Animated.Value(0)).current;
+
   const [diceRolling, setDiceRolling] = useState(false);
 
   useEffect(() => {
@@ -61,11 +60,13 @@ const Dice = React.memo(({color, rotate, player, data}) => {
       ).start();
     };
     animateArrow();
-  });
+  }, [currentPlayerChance, isDiceRolled, arrowAnim]);
+
+  const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   const handleDicePress = async () => {
-    const newDiceNo = Math.floor(Math.random() * 5) + 1;
-    // const newDiceNo = 6;
+    // const newDiceNo = Math.floor(Math.random() * 5) + 1;
+    const newDiceNo = 6;
     setDiceRolling(true);
     await delay(800);
     dispatch(updateDiceNo({diceNo: newDiceNo}));

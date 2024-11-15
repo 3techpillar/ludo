@@ -12,11 +12,11 @@ export const gameSlice = createSlice({
     },
     enablePileSelection: (state, action) => {
       state.touchDiceBlock = true;
-      state.pileSelectionPlayer = action.payload.playerNO;
+      state.pileSelectionPlayer = action.payload.playerNo;
     },
     enableCellSelection: (state, action) => {
       state.touchDiceBlock = true;
-      state.cellSelectionPlayer = action.payload.playerNO;
+      state.cellSelectionPlayer = action.payload.playerNo;
     },
     disableTouch: state => {
       state.touchDiceBlock = true;

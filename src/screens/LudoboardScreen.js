@@ -87,7 +87,9 @@ const LudoboardScreen = () => {
       </TouchableOpacity>
 
       <View style={styles.container}>
-        <View style={styles.flexRow}>
+        <View
+          style={styles.flexRow}
+          pointerEvents={isDiceTouch ? 'none ' : 'auto'}>
           <Dice color={Colors.green} player={2} data={player2} />
           <Dice color={Colors.yellow} rotate data={player3} player={3} />
         </View>
@@ -110,7 +112,9 @@ const LudoboardScreen = () => {
           </View>
         </View>
 
-        <View style={styles.flexRow}>
+        <View
+          style={styles.flexRow}
+          pointerEvents={isDiceTouch ? 'none ' : 'auto'}>
           <Dice color={Colors.red} player={1} data={player1} />
           <Dice color={Colors.blue} rotate player={4} data={player4} />
         </View>
