@@ -28,6 +28,7 @@ const Pocket = React.memo(({color, player, data}) => {
         playerNo = 'player4';
         break;
     }
+    console.log(parseInt(playerNo.match(/\d+/)[0], 10) - 1);
     dispatch(
       updatePlayerPieceValue({
         playerNo: playerNo,

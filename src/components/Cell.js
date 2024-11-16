@@ -2,7 +2,7 @@ import {View, StyleSheet} from 'react-native';
 import React, {useCallback, useMemo} from 'react';
 import {Colors} from '../constants/Colors';
 import Pile from './Pile';
-import {ArrowSpot, safeSpots, starSpots} from '../helpers/PlotData';
+import {arrowSpot, safeSpots, starSpots} from '../helpers/PlotData';
 import {ArrowRightIcon, StarIcon} from 'react-native-heroicons/outline';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {useDispatch, useSelector} from 'react-redux';
@@ -17,7 +17,7 @@ const Cell = ({color, id}) => {
 
   const isSafeSpot = useMemo(() => safeSpots.includes(id), [id]);
   const isStarSpot = useMemo(() => starSpots.includes(id), [id]);
-  const isArrowSpot = useMemo(() => ArrowSpot.includes(id), [id]);
+  const isArrowSpot = useMemo(() => arrowSpot.includes(id), [id]);
 
   // Only filter if plottedPieces is an array
 
